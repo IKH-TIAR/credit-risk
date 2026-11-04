@@ -19,3 +19,6 @@ TARGET_COLUMN = "loan_status"
 
 # Random state for reproducibility
 RANDOM_STATE = 42
+
+# Final tuned Random Forest classification threshold
+DEFAULT_THRESHOLD = 0.35

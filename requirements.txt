@@ -10,3 +10,5 @@ mlflow
 scikit-learn
 scipy
 shap
+fastapi
+uvicorn
