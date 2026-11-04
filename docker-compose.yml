@@ -1,0 +1,22 @@
+services:
+  credit-risk-api:
+    build:
+      context: .
+    environment:
+      CREDIT_RISK_MODEL_URI: file:///app/model
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./mlruns/1/models/m-4c5abd8e8d0140429187267b2edde08d/artifacts:/app/model:ro
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
